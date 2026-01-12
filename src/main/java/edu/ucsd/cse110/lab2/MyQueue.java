@@ -14,11 +14,19 @@ public class MyQueue {
     }
     
     public boolean isEmpty() {
-        return size == 0;
+        if (size == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     public boolean isFull() {
-        return size == elements.length-1;
+        if (size == elements.length) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     public int size() {
@@ -40,7 +48,7 @@ public class MyQueue {
         }
         int element = elements[front];
         front = (front + 1) % elements.length;
-        size++;
+        size--;
         return element;
     }
     
@@ -48,6 +56,6 @@ public class MyQueue {
         if (isEmpty()) {
             throw new IllegalStateException("Queue is empty");
         }
-        return elements[rear];
+        return elements[front];
     }
 }
